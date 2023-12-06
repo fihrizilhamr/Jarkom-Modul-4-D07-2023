@@ -55,6 +55,8 @@ Untuk itu, kita bisa membagina menjadi seperti berikut:
 #### [Pembagian IP](https://docs.google.com/spreadsheets/d/1RY7FPdDOfv3LuHJhLaor01G5I6M8OCQY6VDW5nYtBE8/edit?usp=sharing) VLSM - GNS3
 1. VLSM (Variable Length Subnet Masking)
 
+_Variable Length Subnet Masking_ (VLSM) adalah sebuah metode pengalamatan IP yang memungkinkan pengguna untuk menggunakan subnet mask dengan panjang yang bervariasi untuk mengoptimalkan penggunaan alamat IP dalam jaringan. VLSM memungkinkan kita untuk membagi alamat IP secara lebih efisien dengan mengalokasikan blok alamat yang lebih besar untuk subnet yang membutuhkan lebih banyak host dan blok alamat yang lebih kecil untuk subnet yang membutuhkan lebih sedikit host.
+
 Jadi, pada teknik VLSM, subnet mask (netmask) akan diberikan sesuai dengan kebutuhan jumlah alamat IP dari subnet tersebut. Sesuai dengan jumlah alamat ip yang telah kita bagikan.
 
 Langkah 1 - Tentukan jumlah alamat IP yang dibutuhkan oleh tiap subnet dan lakukan labelling netmask berdasarkan jumlah IP yang dibutuhkan.
@@ -217,7 +219,11 @@ Langkah 5 - Berdasarkan penghitungan, maka didapatkan pembagian IP sebagai berik
 | A21    | 10.27.0.0     | 255.255.255.0     | 10.27.0.255    |
 
 #### Konfigurasi IP VLSM
+
+Konfigurasi network pada GNS3 dapat dilakukan dengan cara membagikan IP dan netmask statics ke masing masing node untuk dilakukan inisialisasi IP agar node tersebut dapat dikenali oleh node yang lain dan dapat saling terhubung. IP yang dibagikan dapat diambil dari perhitungan CIDR yang telah dilakukan sebelumnya dengan menggunakan _range usable_ IP yang dapat digunakan. berikut merupakan contoh yang dapat kami berikan pada node Aura.
+
 Aura
+
 ```
 auto eth0
 iface eth0 inet dhcp
@@ -571,7 +577,10 @@ iface eth0 inet static
          netmask 255.255.255.248	
          gateway 10.25.24.97	
 ```	
-	
+
+Semua pembagian IP pada router juga berlaku sesuai dengan pembagian IP yang sudah dilakukan perhitungan sebelumnya. Pengaturan config juga dilakukan pada _edge device_ atau ujung dari setiap topologi entah itu _client_ maupun server. berikut contoh node lanjutan client dari denken.
+
+Konfigurasi dilakukan pada semua node yang ada dari router sampai _client_ maupun server, semua dilakukan dengan pembagian IP yang telah dilakukan.
 
 #### Konfigurasi IP CIDR
 Aura
@@ -676,6 +685,25 @@ RoyalCapital
 ![Screenshot 2023-12-06 144821.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20144821.png)
 
 #### Routing GNS3
+
+Sama halnya seperti VLSM yang dilakukan routing pada Cisco packet tracker, pada GNS3 CRID juga harus dilakukan routing untuk menentukan route atau rute mana yang saling terhubung satu sama yang lain. Routing dilakukan pada setiap router, router akan meneruskan permintaan yang dilakukan pada _client_ apabila ingin melakukan `ping` pada subnet yang jauh, maka fungsi router itu sendiri untuk menghubungkan jaringan atau subnet yang telah dibuat agar dapat menjangkau node yang jauh, mengetahui rute yang ingin ditempuh sehingga dapat sampai pada node yang diinginkan dengan cepat dan tepat.
+
+Berikut merupakan langkah-langkah sederhana yang dapat dilakukan pada router untuk melakukan routing pada GNS3 secara manual dengan memasukkan command berikut kedalam terminal router.
+
+```
+route add -net <NID subnet> netmask <netmask> gw <IP gateway>
+```
+
+- **NID** merupakan NID dari pembagian IP sebelumnya
+- **netmask** merupakan perhitungan netmask yang didapat dari NID
+- **IP gateway** merupakan jalur yang harus ditempuh untuk meneruskan request yang dilakukan
+
+Setelah melakukan _command_ tersebut dapat dilakukan pengecekan dengan menggunakan _command_ sebagai berikut:
+
+```
+route -n
+```
+
 Aura
 ``` 
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 10.25.0.0/16

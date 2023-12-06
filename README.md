@@ -11,7 +11,7 @@ Anggota Kelompok D07:
 | Fihriz Ilham Rabbany | 5025211040 |
 
 ## Pembahasan
-
+[masuk](#### Konfigurasi IP CIDR)
 ### Soal
 1. Soal shift dikerjakan pada Cisco Packet Tracer dan GNS3 menggunakan metode perhitungan CLASSLESS yang berbeda.
 2. Keterangan: Bila di CPT menggunakan VLSM, maka di GNS3 menggunakan CIDR atau sebaliknya
@@ -52,7 +52,7 @@ Untuk itu, kita bisa membagina menjadi seperti berikut:
 ![Jarkom Modul 4 D07](https://github.com/fihrizilhamr/Jarkom-Modul-4-D07-2023/assets/116176265/f33b3563-b8c0-46ed-a96c-2a6f5172bafa)
 
 
-#### VLSM - GNS3
+#### Pembagian IP VLSM - GNS3
 1. VLSM (Variable Length Subnet Masking)
 
 Jadi, pada teknik VLSM, subnet mask (netmask) akan diberikan sesuai dengan kebutuhan jumlah alamat IP dari subnet tersebut. Sesuai dengan jumlah alamat ip yang telah kita bagikan.
@@ -120,6 +120,8 @@ Berdasarkan total IP dan netmask yang dibutuhkan, maka kita butuh menggunakan ne
 
 Langkah 2 - Subnet besar yang dibentuk memiliki NID 10.25.0.0 dengan netmask /19. Hitung pembagian IP berdasarkan NID dan netmask tersebut menggunakan pohon.
 
+<img width="452" alt="Screenshot 2023-11-30 135751" src="https://github.com/fihrizilhamr/Jarkom-Modul-4-D07-2023/assets/116176265/8fd47d3b-69dd-4f89-a3e3-cd2392edafc7">
+
 Langkah 3 - Lakukan subnetting dengan menggunakan pohon tersebut untuk pembagian IP sesuai dengan kebutuhan masing-masing subnet yang ada seperti gambar di bawah ini.
 
 ![VLSM TREE](https://github.com/fihrizilhamr/Jarkom-Modul-4-D07-2023/assets/116176265/ff79bc94-d19a-4728-8c68-79c0841fb86f)
@@ -151,7 +153,7 @@ Dari pohon dari pohon tersebut akan mendapat pembagian IP sebagai berikut.
 | A21    | 10.25.23.0    | 255.255.255.0     | 10.25.23.255     |
 
 
-#### CIDR - CPT
+#### Pembagian IP CIDR - CPT
 
 2. CIDR (Classless Inter Domain Routing)
 
@@ -199,3 +201,470 @@ Langkah 5 - Berdasarkan penghitungan, maka didapatkan pembagian IP sebagai berik
 | A19    | 10.24.16.0    | 255.255.254.0     | 10.24.17.255    |
 | A20    | 10.27.1.0     | 255.255.255.252   | 10.27.1.3      |
 | A21    | 10.27.0.0     | 255.255.255.0     | 10.27.0.255    |
+
+#### Konfigurasi IP VLSM
+Aura
+```
+auto eth0
+iface eth0 inet dhcp
+
+auto eth1
+iface eth1 inet static
+	address 10.25.24.113
+	netmask 255.255.255.252
+
+auto eth2
+iface eth2 inet static
+	address 10.25.24.149
+	netmask 255.255.255.252
+
+auto eth3
+iface eth3 inet static
+	address 10.25.24.129
+	netmask 255.255.255.252
+```
+
+
+
+
+Frieren
+```
+auto eth0
+iface eth0 inet static
+        address 10.25.24.114
+        netmask 255.255.255.252
+        gateway 10.25.24.113
+
+auto eth1
+iface eth1 inet static
+        address 10.25.24.65
+        netmask 255.255.255.224
+
+auto eth2
+iface eth2 inet static
+        address 10.25.24.117
+        netmask 255.255.255.252
+```
+
+Flamme
+```
+auto eth0
+iface eth0 inet static
+        address 10.25.24.118
+        netmask 255.255.255.252
+        gateway 10.25.24.117
+
+auto eth1
+iface eth1 inet static
+        address 10.25.24.121
+        netmask 255.255.255.252
+
+auto eth2
+iface eth2 inet static
+        address 10.25.8.1
+        netmask 255.255.252.0
+
+auto eth3
+iface eth3 inet static
+        address 10.25.24.125
+        netmask 255.255.255.252
+```
+
+Fern
+```
+auto eth0
+iface eth0 inet static
+        address 10.25.24.122
+        netmask 255.255.255.252
+        gateway 10.25.24.121
+
+auto eth1
+iface eth1 inet static
+        address 10.25.0.1
+        netmask 255.255.248.0
+```
+
+
+Himmel
+```
+auto eth0
+iface eth0 inet static
+        address 10.25.24.126
+        netmask 255.255.255.252
+        gateway 10.25.24.125
+
+auto eth1
+iface eth1 inet static
+        address 10.25.24.97
+        netmask 255.255.255.248
+```
+
+Eisen
+```
+auto eth0
+iface eth0 inet static
+        address 10.25.24.130
+        netmask 255.255.255.252
+        gateway 10.25.24.129
+
+auto eth1
+iface eth1 inet static
+        address 10.25.24.105
+        netmask 255.255.255.248
+
+auto eth2
+iface eth2 inet static
+        address 10.25.24.133
+        netmask 255.255.255.252
+
+auto eth3
+iface eth3 inet static
+        address 10.25.24.137
+        netmask 255.255.255.252
+
+auto eth4
+iface eth4 inet static
+        address 10.25.24.141
+        netmask 255.255.255.252
+```
+
+
+Lugner
+```
+auto eth0
+iface eth0 inet static
+        address 10.25.24.138
+        netmask 255.255.255.252
+        gateway 10.25.24.137
+
+auto eth1
+iface eth1 inet static
+        address 10.25.12.1
+        netmask 255.255.252.0
+
+auto eth2
+iface eth2 inet static
+        address 10.25.22.1
+        netmask 255.255.255.0
+```
+Linie
+```
+auto eth0
+iface eth0 inet static
+        address 10.25.24.142
+        netmask 255.255.255.252
+        gateway 10.25.24.141
+
+auto eth1
+iface eth1 inet static
+        address 10.25.24.145
+        netmask 255.255.255.252
+
+auto eth2
+iface eth2 inet static
+        address 10.25.20.1
+        netmask 255.255.254.0
+```
+
+
+
+Lawine
+```
+auto eth0
+iface eth0 inet static
+        address 10.25.24.146
+        netmask 255.255.255.252
+        gateway 10.25.24.145
+
+auto eth1
+iface eth1 inet static
+        address 10.25.24.1
+        netmask 255.255.255.192
+```
+
+Heiter
+```
+auto eth0
+iface eth0 inet static
+        address 10.25.24.3
+        netmask 255.255.255.192
+        gateway 10.25.24.1
+
+auto eth1
+iface eth1 inet static
+        address 10.25.16.1
+        netmask 255.255.252.0
+```
+
+
+Denken
+```
+auto eth0
+iface eth0 inet static
+        address 10.25.24.150
+        netmask 255.255.255.252
+        gateway 10.25.24.149
+
+auto eth1
+iface eth1 inet static
+        address 10.25.23.1
+        netmask 255.255.255.0
+```
+
+Sein	
+```
+auto eth0	
+iface eth0 inet static	
+         address 10.25.16.2	
+         netmask 255.255.252.0	
+         gateway 10.25.16.1	
+```
+
+RiegelCanyon	
+```
+auto eth0	
+iface eth0 inet static	
+         address 10.25.16.3	
+         netmask 255.255.252.0	
+         gateway 10.25.16.1	
+```
+
+GranzChannel	
+```
+auto eth0	
+iface eth0 inet static	
+         address 10.25.20.2	
+         netmask 255.255.254.0	
+         gateway 10.25.20.1	
+```
+
+LaubHils
+```	
+auto eth0	
+iface eth0 inet static	
+         address 10.25.0.2	
+         netmask 255.255.248.0	
+         gateway 10.25.0.1	
+```
+	
+	
+BredtRegion	
+```	
+auto eth0	
+iface eth0 inet static	
+         address 10.25.24.2	
+         netmask 255.255.255.192	
+         gateway 10.25.24.1	
+```	
+		
+LakeKorridor	
+```
+auto eth0	
+iface eth0 inet static	
+         address 10.25.24.66	
+         netmask 255.255.255.224	
+         gateway 10.25.24.65	
+```
+
+Turk Region	
+```	
+auto eth0	
+iface eth0 inet static	
+         address 10.25.12.2	
+         netmask 255.255.255.252	
+         gateway 10.25.12.1	
+```	
+
+Grobe Forest	
+```
+auto eth0	
+iface eth0 inet static	
+         address 10.25.22.2	
+         netmask 255.255.255.252	
+         gateway 10.25.22.1	
+```	
+
+Appetit Region	
+```
+auto eth0	
+iface eth0 inet static	
+         address 10.25.0.3	
+         netmask 255.255.248.0	
+         gateway 10.25.0.1	
+```	
+	
+RohrRoad	
+```
+auto eth0	
+iface eth0 inet static	
+         address 10.25.8.2	
+         netmask 255.255.252.0	
+         gateway 10.25.8.1	
+```
+
+RoyalCaptain	
+```
+auto eth0	
+iface eth0 inet static	
+         address 10.25.23.2	
+         netmask 255.255.255.0	
+         gateway 10.25.23.1	
+```	
+	
+	
+WilleRegion	
+```
+auto eth0	
+iface eth0 inet static	
+         address 10.25.23.3	
+         netmask 255.255.255.0	
+         gateway 10.25.23.1	
+```	
+
+Richter	
+```
+auto eth0	
+iface eth0 inet static	
+         address 10.25.24.106	
+         netmask 255.255.255.252	
+         gateway 10.25.24.105	
+```	
+	
+Revolte	
+```
+auto eth0	
+iface eth0 inet static	
+         address 10.25.24.107	
+         netmask 255.255.255.252	
+         gateway 10.25.24.105	
+```	
+
+
+Stark	
+```
+auto eth0	
+iface eth0 inet static	
+         address 10.25.24.134	
+         netmask 255.255.255.252	
+         gateway 10.25.24.133	
+```	
+
+SchwerMountains	
+```
+auto eth0	
+iface eth0 inet static	
+         address 10.25.24.98	
+         netmask 255.255.255.248	
+         gateway 10.25.24.97	
+```	
+	
+
+#### Konfigurasi IP CIDR
+Aura
+![Screenshot 2023-12-06 142216.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20142216.png)
+![Screenshot 2023-12-06 142401.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20142401.png)
+![Screenshot 2023-12-06 142424.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20142424.png)
+
+Frieren
+![Screenshot 2023-12-06 142448.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20142448.png)
+![Screenshot 2023-12-06 142519.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20142519.png)
+![Screenshot 2023-12-06 142536.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20142536.png)
+
+Flamme
+![Screenshot 2023-12-06 142625.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20142625.png)
+![Screenshot 2023-12-06 142713.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20142713.png)
+![Screenshot 2023-12-06 142804.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20142804.png)
+![Screenshot 2023-12-06 142816.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20142816.png)
+
+Fern
+![Screenshot 2023-12-06 142842.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20142842.png)
+![Screenshot 2023-12-06 142905.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20142905.png)
+
+Himmel
+![Screenshot 2023-12-06 142933.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20142933.png)
+![Screenshot 2023-12-06 142954.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20142954.png)
+
+Eisen
+![Screenshot 2023-12-06 143300.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20143300.png)
+![Screenshot 2023-12-06 143314.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20143314.png)
+![Screenshot 2023-12-06 143328.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20143328.png)
+![Screenshot 2023-12-06 143341.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20143341.png)
+![Screenshot 2023-12-06 143354.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20143354.png)
+
+Linie
+![Screenshot 2023-12-06 143437.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20143437.png)
+![Screenshot 2023-12-06 143458.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20143458.png)
+![Screenshot 2023-12-06 143511.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20143511.png)
+
+Lawine
+![Screenshot 2023-12-06 143534.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20143534.png)
+![Screenshot 2023-12-06 143548.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20143548.png)
+
+Heiter
+![Screenshot 2023-12-06 143605.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20143605.png)
+![Screenshot 2023-12-06 143620.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20143620.png)
+
+Lugner
+![Screenshot 2023-12-06 143652.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20143652.png)
+![Screenshot 2023-12-06 143703.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20143703.png)
+![Screenshot 2023-12-06 143717.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20143717.png)
+
+Denken
+![Screenshot 2023-12-06 143748.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20143748.png)
+![Screenshot 2023-12-06 143802.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20143802.png)
+
+LakeKorridor
+![Screenshot 2023-12-06 143826.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20143826.png)
+
+LaubHills
+![Screenshot 2023-12-06 143849.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20143849.png)
+
+AppetitRegion
+![Screenshot 2023-12-06 143908.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20143908.png)
+
+RohrRoad
+![Screenshot 2023-12-06 143937.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20143937.png)
+
+SchwerMountains
+![Screenshot 2023-12-06 144000.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20144000.png)
+
+BredtRegion
+![Screenshot 2023-12-06 144048.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20144048.png)
+
+Sein
+![Screenshot 2023-12-06 144205.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20144205.png)
+
+RiegelCanyon
+![Screenshot 2023-12-06 144223.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20144223.png)
+
+GranzChannel
+![Screenshot 2023-12-06 144328.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20144328.png)
+
+GrobeForest 
+![Screenshot 2023-12-06 144351.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20144351.png)
+
+TurkRegion
+![Screenshot 2023-12-06 144518.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20144518.png)
+
+Richter
+![Screenshot 2023-12-06 144617.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20144617.png)
+
+Revolte
+![Screenshot 2023-12-06 144707.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20144707.png)
+
+Stark
+![Screenshot 2023-12-06 144730.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20144730.png)
+
+WilleRegion
+![Screenshot 2023-12-06 144803.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20144803.png)
+
+RoyalCapital
+![Screenshot 2023-12-06 144821.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20144821.png)
+
+#### Routing GNS3
+
+#### Routing CPT
+
+#### Kendala
+Tidak ada kendala, yang signifikan dalam pengerjaan soal.
+

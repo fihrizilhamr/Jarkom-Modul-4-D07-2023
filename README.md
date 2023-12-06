@@ -220,7 +220,7 @@ Langkah 5 - Berdasarkan penghitungan, maka didapatkan pembagian IP sebagai berik
 
 #### Konfigurasi IP VLSM
 
-Konfigurasi network pada GNS3 dapat dilakukan dengan cara membagikan IP dan netmask statics ke masing masing node untuk dilakukan inisialisasi IP agar node tersebut dapat dikenali oleh node yang lain dan dapat saling terhubung. IP yang dibagikan dapat diambil dari perhitungan CIDR yang telah dilakukan sebelumnya dengan menggunakan _range usable_ IP yang dapat digunakan. berikut merupakan contoh yang dapat kami berikan pada node Aura.
+Berdasarkan tree yang telah kami bentuk, selanjutnya kami dapat membagi ip kepada semua node yang ada berdasarkan subneting masing masing. berikut pembagianya:
 
 Aura
 

@@ -11,7 +11,7 @@ Anggota Kelompok D07:
 | Fihriz Ilham Rabbany | 5025211040 |
 
 ## Pembahasan
-[masuk](#### Konfigurasi IP CIDR)
+
 ### Soal
 1. Soal shift dikerjakan pada Cisco Packet Tracer dan GNS3 menggunakan metode perhitungan CLASSLESS yang berbeda.
 2. Keterangan: Bila di CPT menggunakan VLSM, maka di GNS3 menggunakan CIDR atau sebaliknya
@@ -49,10 +49,10 @@ Hal yang perlu diperhatikan
 Pertama, kita perlu membuat rute subnet untuk topologi yang telah diberikan.
 Untuk itu, kita bisa membagina menjadi seperti berikut:
 
-![Jarkom Modul 4 D07](https://github.com/fihrizilhamr/Jarkom-Modul-4-D07-2023/assets/116176265/f33b3563-b8c0-46ed-a96c-2a6f5172bafa)
+![Jarkom Modul 4 D07](Pembagian%20IP%20VLSM/Jarkom%20Modul%204%20D07.png)
 
 
-#### Pembagian IP VLSM - GNS3
+#### [Pembagian IP](https://docs.google.com/spreadsheets/d/1RY7FPdDOfv3LuHJhLaor01G5I6M8OCQY6VDW5nYtBE8/edit?usp=sharing) VLSM - GNS3
 1. VLSM (Variable Length Subnet Masking)
 
 Jadi, pada teknik VLSM, subnet mask (netmask) akan diberikan sesuai dengan kebutuhan jumlah alamat IP dari subnet tersebut. Sesuai dengan jumlah alamat ip yang telah kita bagikan.
@@ -120,11 +120,12 @@ Berdasarkan total IP dan netmask yang dibutuhkan, maka kita butuh menggunakan ne
 
 Langkah 2 - Subnet besar yang dibentuk memiliki NID 10.25.0.0 dengan netmask /19. Hitung pembagian IP berdasarkan NID dan netmask tersebut menggunakan pohon.
 
-<img width="452" alt="Screenshot 2023-11-30 135751" src="https://github.com/fihrizilhamr/Jarkom-Modul-4-D07-2023/assets/116176265/8fd47d3b-69dd-4f89-a3e3-cd2392edafc7">
+![Kalkulasi](Pembagian%20IP%20VLSM/Kalkulasi.png)
+
 
 Langkah 3 - Lakukan subnetting dengan menggunakan pohon tersebut untuk pembagian IP sesuai dengan kebutuhan masing-masing subnet yang ada seperti gambar di bawah ini.
 
-![VLSM TREE](https://github.com/fihrizilhamr/Jarkom-Modul-4-D07-2023/assets/116176265/ff79bc94-d19a-4728-8c68-79c0841fb86f)
+![VLSM TREE](Pembagian%20IP%20VLSM/VLSM%20TREE.png)
 
 Dari pohon dari pohon tersebut akan mendapat pembagian IP sebagai berikut.
 
@@ -170,11 +171,24 @@ Pada teknik CIDR subnet gabungan akan memiliki netmask yang 1 tingkat di atas su
 
 Lalu ulangi langkah tersebut sampai menjadi sebuah subnet besar yang mencakup 1 topologi yang kita miliki.
 
+![Jarkom Modul 4 D07.png](Pembagian%20IP%20CIDR/Jarkom%20Modul%204%20D07.png)
+![Jarkom Modul 4 D07 CIDR V2 - 8.png](Pembagian%20IP%20CIDR/Jarkom%20Modul%204%20D07%20CIDR%20V2%20-%208.png)
+![Jarkom Modul 4 D07 CIDR V2 - 7.png](Pembagian%20IP%20CIDR/Jarkom%20Modul%204%20D07%20CIDR%20V2%20-%207.png)
+![Jarkom Modul 4 D07 CIDR V2 - 6.png](Pembagian%20IP%20CIDR/Jarkom%20Modul%204%20D07%20CIDR%20V2%20-%206.png)
+![Jarkom Modul 4 D07 CIDR V2 - 5.png](Pembagian%20IP%20CIDR/Jarkom%20Modul%204%20D07%20CIDR%20V2%20-%205.png)
+![Jarkom Modul 4 D07 CIDR V2 - 4.png](Pembagian%20IP%20CIDR/Jarkom%20Modul%204%20D07%20CIDR%20V2%20-%204.png)
+![Jarkom Modul 4 D07 CIDR V2 - 3.png](Pembagian%20IP%20CIDR/Jarkom%20Modul%204%20D07%20CIDR%20V2%20-%203.png)
+![Jarkom Modul 4 D07 CIDR V2 - 2.png](Pembagian%20IP%20CIDR/Jarkom%20Modul%204%20D07%20CIDR%20V2%20-%202.png)
+![Jarkom Modul 4 D07 CIDR V2 - 1.png](Pembagian%20IP%20CIDR/Jarkom%20Modul%204%20D07%20CIDR%20V2%20-%201.png)
+![Jarkom Modul 4 D07 CIDR V2.png](Pembagian%20IP%20CIDR/Jarkom%20Modul%204%20D07%20CIDR%20V2.png)
+
+
+
 Langkah 3 - Dari proses penggabungan yang telah dilakukan, didapatkan sebuah subnet besar dengan netmask /14. Kali ini dapat menggunakan NID 10.24.0.0, netmask 255.252.0.0.
 
 Langkah 4 - Hitung pembagian IP dengan pohon berdasarkan penggabungan subnet yang telah dilakukan.
 
-![CIDR TREE](https://github.com/fihrizilhamr/Jarkom-Modul-4-D07-2023/assets/116176265/3b7b1cad-eb04-480d-9d5d-0b5a6b1ed39e)
+![CIDR TREE](Pembagian%20IP%20CIDR/CIDR%20TREE.png)
 
 Langkah 5 - Berdasarkan penghitungan, maka didapatkan pembagian IP sebagai berikut.
 
@@ -662,9 +676,204 @@ RoyalCapital
 ![Screenshot 2023-12-06 144821.png](Konfigurasi%20IP%20CIDR/Screenshot%202023-12-06%20144821.png)
 
 #### Routing GNS3
+Aura
+``` 
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 10.25.0.0/16
+route add -net 10.25.24.64 netmask 255.255.255.224 gw 10.25.24.114
+route add -net 10.25.24.116 netmask 255.255.255.252 gw 10.25.24.114
+route add -net 10.25.24.120 netmask 255.255.255.252 gw 10.25.24.114
+route add -net 10.25.0.0 netmask 255.255.248.0 gw 10.25.24.114
+route add -net 10.25.8.0 netmask 255.255.252.0 gw 10.25.24.114
+route add -net 10.25.24.124 netmask 255.255.255.252 gw 10.25.24.114
+route add -net 10.25.24.96 netmask 255.255.255.248 gw 10.25.24.114
+route add -net 10.25.24.104 netmask 255.255.255.248 gw 10.25.24.130
+route add -net 10.25.24.132 netmask 255.255.255.252 gw 10.25.24.130
+route add -net 10.25.24.136 netmask 255.255.255.252 gw 10.25.24.130
+route add -net 10.25.12.0 netmask 255.255.252.0 gw 10.25.24.130
+route add -net 10.25.22.0 netmask 255.255.255.0 gw 10.25.24.130
+route add -net 10.25.24.140 netmask 255.255.255.252 gw 10.25.24.130
+route add -net 10.25.24.144 netmask 255.255.255.252 gw 10.25.24.130
+route add -net 10.25.24.0 netmask 255.255.255.192 gw 10.25.24.130
+route add -net 10.25.16.0 netmask 255.255.252.0 gw 10.25.24.130
+route add -net 10.25.20.0 netmask 255.255.254.0 gw 10.25.24.130
+route add -net 10.25.23.0 netmask 255.255.255.0 gw 10.25.24.150
+```
+
+Frieren
+```
+echo nameserver 192.168.122.1 > /etc/resolv.conf
+route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.25.24.113
+route add -net 10.25.24.120 netmask 255.255.255.252 gw 10.25.24.118
+route add -net 10.25.0.0 netmask 255.255.248.0 gw 10.25.24.118
+route add -net 10.25.8.0 netmask 255.255.252.0 gw 10.25.24.118
+route add -net 10.25.24.124 netmask 255.255.255.252 gw 10.25.24.118
+route add -net 10.25.24.96 netmask 255.255.255.248 gw 10.25.24.118
+```
+
+Flamme
+```
+echo nameserver 192.168.122.1 > /etc/resolv.conf
+route add -net 0.0.0.0 netmask 0.0.0.0 gw  10.25.24.117
+route add -net 10.25.0.0 netmask 255.255.248.0 gw 10.25.24.122
+route add -net 10.25.24.96 netmask 255.255.255.248 gw 10.25.24.126
+```
+
+Fern
+```
+echo nameserver 192.168.122.1 > /etc/resolv.conf
+route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.25.24.121
+```
+
+Himmel
+```
+echo nameserver 192.168.122.1 > /etc/resolv.conf
+route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.25.24.125
+```
+
+Eisen
+```
+echo nameserver 192.168.122.1 > /etc/resolv.conf
+route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.25.24.129
+route add -net 10.25.12.0 netmask 255.255.252.0 gw 10.25.24.138
+route add -net 10.25.22.0 netmask 255.255.255.0 gw 10.25.24.138
+route add -net 10.25.24.144 netmask 255.255.255.252 gw 10.25.24.142
+route add -net 10.25.24.0 netmask 255.255.255.192 gw 10.25.24.142
+route add -net 10.25.16.0 netmask 255.255.252.0 gw 10.25.24.142
+route add -net 10.25.20.0 netmask 255.255.254.0 gw 10.25.24.142
+```
+
+Lugner
+```
+echo nameserver 192.168.122.1 > /etc/resolv.conf
+route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.25.24.137
+```
+
+Linie
+```
+echo nameserver 192.168.122.1 > /etc/resolv.conf
+route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.25.24.141
+route add -net 10.25.24.0 netmask 255.255.255.192 gw 10.25.24.146
+route add -net 10.25.16.0 netmask 255.255.252.0 gw 10.25.24.146
+```
+
+Lawine
+```
+echo nameserver 192.168.122.1 > /etc/resolv.conf
+route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.25.24.145
+route add -net 10.25.16.0 netmask 255.255.252.0 gw 10.25.24.3
+```
+
+Heiter
+```
+echo nameserver 192.168.122.1 > /etc/resolv.conf
+route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.25.24.1
+```
+
+Denken
+```
+echo nameserver 192.168.122.1 > /etc/resolv.conf
+route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.25.24.149
+```
 
 #### Routing CPT
+Aura
+```
+ip route 10.26.64.0 255.255.255.224 10.26.128.2
+ip route 10.26.32.0 255.255.255.252 10.26.128.2
+ip route 10.26.8.0 255.255.255.252 10.26.128.2
+ip route 10.26.0.0 255.255.248.0 10.26.128.2
+ip route 10.26.16.0 255.255.252.0 10.26.128.2
+ip route 10.26.20.8 255.255.255.252 10.26.128.2
+ip route 10.26.20.0 255.255.255.248 10.26.128.2
+ip route 10.24.64.0 255.255.255.248 10.25.0.2
+ip route 10.24.144.0 255.255.255.252 10.25.0.2
+ip route 10.24.136.0 255.255.255.252 10.25.0.2
+ip route 10.24.128.0 255.255.252.0 10.25.0.2
+ip route 10.24.132.0 255.255.255.0 10.25.0.2
+ip route 10.24.32.0 255.255.255.252 10.25.0.2
+ip route 10.24.8.0 255.255.255.252 10.25.0.2
+ip route 10.24.4.0 255.255.255.192 10.25.0.2
+ip route 10.24.0.0 255.255.252.0 10.25.0.2
+ip route 10.24.16.0 255.255.254.0 10.25.0.2
+ip route 10.27.0.0 255.255.255.0 10.27.1.2
+```
+
+Frieren
+```
+ip route 0.0.0.0 0.0.0.0 10.26.128.1
+ip route 10.26.8.0 255.255.255.252 10.26.32.2
+ip route 10.26.0.0 255.255.248.0 10.26.32.2
+ip route 10.26.16.0 255.255.252.0 10.26.32.2
+ip route 10.26.20.8 255.255.255.252 10.26.32.2
+ip route 10.26.20.0 255.255.255.248 10.26.32.2
+```
+
+Flamme
+```
+ip route 0.0.0.0 0.0.0.0 10.26.32.1
+ip route 10.26.0.0 255.255.248.0 10.26.8.2
+ip route 10.26.20.0 255.255.255.248 10.26.20.10
+```
+
+Fern
+```
+ip route 0.0.0.0 0.0.0.0 10.26.8.1
+```
+
+Himmel
+```
+ip route 0.0.0.0 0.0.0.0 10.26.20.9
+```
+
+Eisen
+```
+ip route 0.0.0.0 0.0.0.0 10.25.0.1
+ip route 10.24.128.0 255.255.252.0 10.24.136.2
+ip route 10.24.132.0 255.255.255.0 10.24.136.2
+
+ip route 10.24.8.0 255.255.255.252 10.24.32.2
+ip route 10.24.4.0 255.255.255.192 10.24.32.2
+ip route 10.24.0.0 255.255.252.0 10.24.32.2
+ip route 10.24.16.0 255.255.254.0 10.24.32.2
+```
+
+Lugner
+```
+ip route 0.0.0.0 0.0.0.0 10.24.136.1
+```
+
+Linie
+```
+ip route 0.0.0.0 0.0.0.0 10.24.32.1
+ip route 10.24.4.0 255.255.255.192 10.24.8.2
+ip route 10.24.0.0 255.255.252.0 10.24.8.2
+```
+
+Lawine
+```
+ip route 0.0.0.0 0.0.0.0 10.24.8.1
+ip route 10.24.0.0 255.255.252.0 10.24.4.2
+```
+
+Heiter
+```
+ip route 0.0.0.0 0.0.0.0 10.24.4.1
+```
+
+Denken
+```
+ip route 0.0.0.0 0.0.0.0 10.27.1.1
+```
+
+#### Testing GNS3
+![IP GranzChannel.png](Testing/IP%20GranzChannel.png)
+![Ping CPT.png](Testing/Ping%20CPT.png)
+
+#### Testing CPT
+![Ping LaubHills GranzChannel.png](Testing/Ping%20LaubHills%20GranzChannel.png)
+
+
 
 #### Kendala
-Tidak ada kendala, yang signifikan dalam pengerjaan soal.
+Tidak ada kendala yang signifikan dalam pengerjaan soal.
 
